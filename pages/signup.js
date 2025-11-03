@@ -94,7 +94,7 @@ export default function Signup() {
             type="password"
             id="password"
             value={password}
-            onChange={(e) => setsetPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
