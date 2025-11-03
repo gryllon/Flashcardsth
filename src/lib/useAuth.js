@@ -10,7 +10,9 @@ export const useAuth = () => {
   useEffect(() => {
     const fetchUserProfile = async (authUser) => {
       if (!authUser) {
-        router.push('/login');
+        if (router.pathname !== '/login' && router.pathname !== '/signup') {
+          router.push('/login');
+        }
         setLoading(false);
         return;
       }

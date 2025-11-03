@@ -157,7 +157,7 @@ export default function FlashcardPlayer() {
                   <div className="face front">
                     <div className="content" id="card-front">
                       {currentPlayCard.image ? (
-                        <Image src={currentPlayCard.image} alt="card image" className="card-image" fill sizes="100%" style={{ objectFit: 'contain' }} />
+                        <Image src={currentPlayCard.image} alt="card image" className="card-image" fill sizes="(max-width: 420px) 100vw, 420px" style={{ objectFit: 'contain' }} />
                       ) : (
                         currentPlayCard.front || 'Sem conteúdo'
                       )}
@@ -194,7 +194,7 @@ export default function FlashcardPlayer() {
                 <div className="face front">
                   <div className="content" id="card-front">
                                       {currentCard ? (
-                                        currentCard.image ? <Image src={currentCard.image} alt="card image" className="card-image" fill sizes="100%" style={{ objectFit: 'contain' }} /> : (currentCard.front || 'Sem conteúdo')
+                                        currentCard.image ? <Image src={currentCard.image} alt="card image" className="card-image" fill sizes="(max-width: 420px) 100vw, 420px" style={{ objectFit: 'contain' }} /> : (currentCard.front || 'Sem conteúdo')
                                       ) : (
                                         'Sem cartões — crie uma lista primeiro.'
                                       )}                  </div>
@@ -227,7 +227,7 @@ export default function FlashcardPlayer() {
                 return (
                   pendingMode === 'mc-reversed' ? (
                     <button key={index} className={`${buttonClass} mc-reversed-alt-button`} onClick={() => handleAnswer(alt)} disabled={selectedAnswer !== null}>
-                      <Image src={alt} alt="" style={{ ...imageStyle, objectFit: 'contain' }} fill sizes="100%" />
+                      <Image src={alt} alt="" style={{ ...imageStyle, objectFit: 'contain' }} fill sizes="(max-width: 480px) 200px, 150px" />
                     </button>
                   ) : (
                     <button key={index} className={buttonClass} onClick={() => handleAnswer(alt)} disabled={selectedAnswer !== null}>
@@ -251,7 +251,7 @@ export default function FlashcardPlayer() {
             <div className="type-area">
               <div className="type-image">
                 {currentCard ? (
-                  currentCard.image ? <Image src={currentCard.image} alt="card image" className="card-image" fill sizes="100%" style={{ objectFit: 'contain' }} /> : <p>{currentCard.name}</p>
+                  currentCard.image ? <Image src={currentCard.image} alt="card image" className="card-image" fill sizes="(max-width: 640px) 100vw, 640px" style={{ objectFit: 'contain' }} /> : <p>{currentCard.name}</p>
                 ) : (
                   'Sem cartões'
                 )}

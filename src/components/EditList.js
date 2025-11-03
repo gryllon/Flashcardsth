@@ -44,7 +44,7 @@ export default function EditList() {
         />
         {previewImageUrl && (
           <div className="preview-image-wrapper" style={{ marginBottom: '15px' }}>
-            <Image src={previewImageUrl} alt="Pré-visualização" fill sizes="100vw" />
+            <Image src={previewImageUrl} alt="Pré-visualização" fill sizes="(max-width: 640px) 100vw, 640px" />
           </div>
         )}
         <label htmlFor="editListItemName">Nome (verso):</label>
@@ -68,7 +68,7 @@ export default function EditList() {
           <div key={index} className="preview-item">
             <div className="preview-image-wrapper">
               {item.image && (
-                <Image src={item.image} alt="preview" fill sizes="100vw" />
+                <Image src={item.image} alt="preview" fill sizes="100px" />
               )}
             </div>
             <div className="preview-name-overlay">

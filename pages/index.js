@@ -13,12 +13,8 @@ import FlashcardPlayer from '../src/components/FlashcardPlayer';
 export default function Home() {
   const { user, authLoading, currentSection, handleLogout } = useAppContext();
 
-  if (authLoading) {
-    return <p>Carregando...</p>;
-  }
-
-  if (!user) {
-    return null; // useAuth hook handles redirect
+  if (authLoading || !user) {
+    return <p>Carregando...</p>; // Always render a loading state while auth is being determined or if no user (useAuth handles redirect)
   }
 
   const renderSection = () => {

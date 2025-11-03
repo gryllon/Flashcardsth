@@ -183,8 +183,8 @@ export function AppProvider({ children }) {
           }
         });
       });
-      console.log('Stats (full content):', JSON.parse(JSON.stringify(stats)));
-      console.log('Card Map (full content):', Array.from(cardMap.entries()));
+
+
 
       const sortedErrors = Object.entries(stats)
         .filter(([identifier, score]) => score > 0 && cardMap.has(identifier)) // Filter out identifiers not in cardMap
@@ -194,7 +194,7 @@ export function AppProvider({ children }) {
           cardName: cardMap.get(identifier) || 'Carta desconhecida',
           score: score,
         }));
-      console.log('Sorted Errors:', sortedErrors);
+
       setTopErrors(sortedErrors);
     }
   }, [currentSection, stats, activity, userLists]);

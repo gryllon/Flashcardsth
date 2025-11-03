@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { supabase } from '../src/lib/supabase'; // Adjust path if necessary
 
 export default function Login() {
@@ -87,7 +88,7 @@ export default function Login() {
       </form>
       {message && <p className={message.includes('Erro') || message.includes('inválidas') ? 'error-message' : 'success-message'}>{message}</p>}
       <p>
-        Não tem uma conta? <a href="/signup">Crie uma conta</a>
+        Não tem uma conta? <Link href="/signup">Crie uma conta</Link>
       </p>
     </div>
   );
