@@ -2,7 +2,7 @@
 
 .card-image {
   max-width: 100%;
-  max-height: 50vh;
+  max-height: 95vh; /* Aumentado para ocupar ainda mais espaço vertical */
   object-fit: contain;
 }
 
@@ -72,9 +72,10 @@
 
 .type-image {
   position: relative;
-  height: 400px;
-  max-width: 80%; /* Limita a largura máxima da imagem */
+  height: 300px; /* Diminuído um pouco */
+  max-width: 85%; /* Mantido */
   width: 100%; /* Garante que o contêiner da imagem ocupe a largura disponível */
+  margin-top: 20px; /* Ajusta a div para baixo */
 }
 
 .type-image p {
@@ -343,7 +344,7 @@
   }
 
   .card-image {
-    max-height: 65vh; /* Allow image to be taller on large screens */
+    max-height: 100vh; /* Aumentado para permitir que a imagem seja mais alta em telas grandes */
   }
 }
 

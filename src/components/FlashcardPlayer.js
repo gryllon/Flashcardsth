@@ -219,15 +219,10 @@ export default function FlashcardPlayer() {
                   if (isCorrect) buttonClass += " correct-answer";
                   else if (isWrong) buttonClass += " wrong-answer";
                 }
-                const imageStyle = {};
-                if (selectedAnswer !== null) {
-                  if (isCorrect) imageStyle.border = '5px solid #28a745';
-                  else if (isWrong) imageStyle.border = '5px solid #dc3545';
-                }
                 return (
                   pendingMode === 'mc-reversed' ? (
                     <button key={index} className={`${buttonClass} mc-reversed-alt-button`} onClick={() => handleAnswer(alt)} disabled={selectedAnswer !== null}>
-                      <Image src={alt} alt="" style={{ ...imageStyle, objectFit: 'contain' }} fill sizes="(max-width: 480px) 200px, 150px" />
+                      <Image src={alt} alt="" style={{ objectFit: 'contain' }} fill sizes="(max-width: 480px) 200px, 150px" />
                     </button>
                   ) : (
                     <button key={index} className={buttonClass} onClick={() => handleAnswer(alt)} disabled={selectedAnswer !== null}>
