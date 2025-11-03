@@ -48,15 +48,19 @@ export default function Home() {
     }
   };
 
+  const gameModes = ['flashcards', 'alternatives', 'alternatives-inverted', 'type'];
+
   return (
     <div className="main-container">
-      <button
-        onClick={handleLogout}
-        disabled={authLoading}
-        className="btn danger"
-      >
-        {authLoading ? 'Saindo...' : 'Sair'}
-      </button>
+      {!gameModes.includes(currentSection) && (
+        <button
+          onClick={handleLogout}
+          disabled={authLoading}
+          className="btn danger"
+        >
+          {authLoading ? 'Saindo...' : 'Sair'}
+        </button>
+      )}
       <div className="content-container">
         {renderSection()}
       </div>
