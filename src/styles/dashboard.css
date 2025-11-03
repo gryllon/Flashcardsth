@@ -1,0 +1,57 @@
+/* src/styles/dashboard.css */
+
+.dashboard-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--card-background);
+}
+
+.dashboard-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.dashboard-container p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.dashboard-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--light-color);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dashboard-container button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+}
+
+.dashboard-container button.primary {
+  background-color: var(--primary-color);
+}
+
+.dashboard-container button.primary:hover:not(:disabled) {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.dashboard-container button.danger {
+  background-color: var(--danger-color);
+  margin-top: 10px;
+}
+
+.dashboard-container button.danger:hover:not(:disabled) {
+  background-color: darken(var(--danger-color), 10%);
+}

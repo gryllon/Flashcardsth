@@ -1,0 +1,814 @@
+/* src/styles/main.css */
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --background-color: #f4f7f6;
+  --text-color: #333;
+  --border-color: #ccc;
+  --card-background: #fff;
+}
+
+[data-theme='dark'] {
+  --primary-color: #66b3ff;
+  --secondary-color: #99a3ac;
+  --success-color: #4cd964;
+  --danger-color: #ff3b30;
+  --warning-color: #ffcc00;
+  --info-color: #5ac8fa;
+  --light-color: #444;
+  --dark-color: #eee;
+  --background-color: #222;
+  --text-color: #eee;
+  --border-color: #555;
+  --card-background: #333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--card-background);
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #5a6268; /* Cor mais escura para hover */
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background-color: #0056b3; /* Cor mais escura para hover */
+}
+
+.btn.danger {
+  background-color: var(--danger-color);
+  color: var(--light-color);
+}
+
+.btn.danger:hover:not(:disabled) {
+  background-color: #c82333; /* Cor mais escura para hover */
+}
+
+.btn:disabled {
+  background-color: #a0c8f7;
+  cursor: not-allowed;
+}
+
+.btn.small {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.btn.icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none; /* Remove o contorno de foco */
+}
+
+.btn.icon-btn:hover {
+  opacity: 0.8; /* Efeito de hover simples para o ícone */
+}
+
+.btn.icon-btn img {
+  width: 32px; /* Increased size for better visibility */
+  height: 32px;
+  vertical-align: middle;
+}
+
+[data-theme='dark'] .btn.icon-btn img {
+  filter: invert(100%); /* Inverte as cores da imagem no modo escuro */
+}
+
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}
+
+.panel {
+  padding: 20px;
+}
+
+/* Remote styles integrated below, prioritizing local where overlap */
+
+/* Remote body styles - mostly overridden by local, but keeping font-family */
+body {
+    font-family:Inter,system-ui,Segoe UI,Arial,sans-serif; /* Keeping remote's font-family */
+}
+
+/* Remote header and nav styles - integrating as they are distinct */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Remote root variables - some overlap with local, but local is more comprehensive. Keeping remote's accent and muted for specific components */
+:root{
+    --accent:#2b6cb0;
+    --muted:#666;
+}
+
+/* Remote general styles */
+*{box-sizing:border-box}
+html,body{height:100%;}
+.hidden{display:none !important}
+.app{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+}
+.menu{display:flex;flex-direction:column;align-items:center;gap:12px}
+.menu-actions{display:flex;gap:10px;flex-wrap:wrap}
+.panel.hidden, .card-area.hidden, #view-list.hidden{display:none}
+.panel{width:100%;max-width:640px;background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+.add-form{display:flex;flex-direction:column;gap:8px}
+.add-form input[type="file"]{padding:6px}
+.row{display:flex;gap:8px}
+.preview-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.preview-item{width:100px;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);background:#fff;padding:6px;text-align:center}
+.preview-item img{width:100%;height:70px;object-fit:cover;border-radius:6px}
+.preview-item .name{font-size:0.85rem;margin-top:6px}
+.lists-collection{display:flex;flex-direction:column;gap:8px}
+.list-card{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;background:#fff;border:1px solid rgba(0,0,0,0.06)}
+.list-card .meta{flex:1}
+.btn.small{padding:6px 8px;font-size:0.85rem}
+
+/* Toast / undo */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;background:rgba(0,0,0,0.85);color:#fff;padding:10px 14px;border-radius:8px;display:flex;gap:10px;align-items:center;z-index:1000;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+.toast.hidden{display:none}
+.toast .action{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 8px;border-radius:6px;cursor:pointer}
+.muted{color:var(--muted);font-size:0.9rem}
+
+/* Modal de confirmação */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);z-index:1100}
+.modal.hidden{display:none}
+.modal .modal-content{background:var(--card-bg);padding:18px;border-radius:10px;max-width:520px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.25);text-align:left}
+.modal .modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.btn.danger{background:#e53e3e;color:#fff;border:none}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Keeping local margin */
+  margin-top: 60px; /* Adiciona margem superior para evitar sobreposição */
+}
+
+.menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.add-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-form input[type="text"],
+.add-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.add-form .row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.add-form .row button {
+  flex: 1;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.preview-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  background-color: var(--card-background);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Garante que o botão vá para o final */
+}
+
+.preview-image-wrapper {
+  width: 100%;
+  height: 100px;
+  position: relative; /* Adicionado para conter corretamente a imagem com fill */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.preview-name-overlay {
+  position: static; /* Remove o posicionamento absoluto para não sobrepor */
+  background-color: transparent; /* Remove o fundo escuro */
+  color: var(--text-color); /* Usa a cor do texto do tema */
+  padding: 5px 0; /* Ajusta o padding */
+  font-size: 0.9em; /* Ajusta o tamanho da fonte */
+  word-break: break-word;
+  margin-top: 5px; /* Adiciona um pequeno espaçamento acima do nome */
+  margin-bottom: 5px; /* Adiciona um pequeno espaçamento abaixo do nome */
+}
+
+.list-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--card-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha o nome da lista à esquerda */
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.list-card-info strong {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.list-card-info .muted {
+  color: var(--secondary-color);
+  font-size: 0.9em;
+}
+
+.list-card .meta strong {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.list-card .meta .muted {
+  color: var(--secondary-color);
+  font-size: 0.9em;
+}
+
+.list-actions .btn {
+  margin-left: 10px;
+}
+
+.list-actions {
+  flex-shrink: 0;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--card-background);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Activity Calendar */
+#activity-calendar {
+  margin: 2rem 0;
+}
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.calendar-day-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-day {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  background-color: var(--card-background);
+}
+
+.calendar-day.empty {
+  background-color: #eee;
+}
+
+.calendar-day.practiced {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.lists-collection {
+  margin-top: 20px;
+}
+
+.mc-reversed-question {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mc-reversed-question p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Specific styles for the main menu */
+.menu h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu .icon-btn img {
+  width: 32px; /* Increased size for better visibility */
+  height: 32px;
+  vertical-align: middle;
+}
+
+.main-container > .btn.danger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablets (screens up to 768px wide) */
+@media (max-width: 768px) {
+  .content-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  .add-form .row {
+    gap: 5px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .modal-actions {
+    gap: 5px;
+  }
+
+  .preview-grid {
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust for smaller screens */
+  }
+
+  .list-card {
+    padding: 10px;
+  }
+
+  .list-card-info strong {
+    font-size: 1em;
+  }
+
+  .list-card-info .muted {
+    font-size: 0.8em;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .btn.small {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Phones (screens up to 480px wide) */
+@media (max-width: 480px) {
+  .content-container {
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 0; /* Remove border-radius on very small screens for full width look */
+  }
+
+  .panel {
+    padding: 10px;
+  }
+
+  .add-form .row {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .add-form .row button {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .modal-actions {
+    flex-direction: column; /* Stack modal buttons vertically */
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+  }
+
+  .preview-grid {
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Further adjust for phones */
+  }
+
+  .calendar-grid {
+    gap: 3px;
+    grid-template-columns: repeat(7, minmax(30px, 1fr)); /* Ensure calendar days are visible */
+  }
+
+  .list-card {
+    flex-direction: column; /* Stack list card info and actions */
+    align-items: flex-start;
+    padding: 8px;
+  }
+
+  .list-actions {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* Distribute action buttons */
+  }
+
+  .list-actions .btn {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .preview-name-overlay {
+    font-size: 0.8em;
+  }
+}
+
+/* Remote calendar day styles */
+.calendar-day, .calendar-day-header {
+  text-align: center;
+  padding: 10px 5px;
+}
+.calendar-day-header {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+.calendar-day {
+  border-radius: 4px;
+}
+.calendar-day.practiced {
+  background-color: #9ae6b4; /* A nice green */
+  color: #2f855a;
+  font-weight: bold;
+}
+.calendar-day.empty {
+  visibility: hidden;
+}
+body.dark .calendar-day.practiced {
+    background-color: #2f855a;
+    color: #f0fff4;
+}
+
+/* Remote drag & drop visuals for preview */
+.preview-item[draggable="true"]{cursor:grab}
+.preview-item.dragging{opacity:0.45;transform:scale(0.98)}
+.preview-item .item-actions{display:flex;gap:6px;margin-top:6px;justify-content:center}
+.preview-item.editing{outline:2px dashed var(--accent);padding:8px}
+.card-area{width:100%;max-width:520px}
+.card-wrap{perspective:1200px;display:flex;align-items:center;justify-content:center}
+
+/* allow JS to toggle visibility on the inner card container */
+.card-wrap.hidden{display:none !important}
+.card{width:100%;max-width:420px;height:56vh;max-height:520px;background:var(--card-bg);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);position:relative;transform-style:preserve-3d;transition:transform 400ms ease;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;backface-visibility:hidden;border-radius:12px}
+.front{background:linear-gradient(180deg, #fff, #fbfbff)}
+.back{background:linear-gradient(180deg,#fff,#f6f9ff);transform:rotateY(180deg)}
+.content{font-size:clamp(1rem,2.4vw,1.4rem);line-height:1.3;color:#111;text-align:center}
+.controls{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.btn{padding:10px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:#fff;font-weight:600;color:#111}
+.btn:active{transform:translateY(1px)}
+.meta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;color:var(--muted)}
+.link{background:none;border:none;color:var(--accent);text-decoration:underline;cursor:pointer}
+.position{font-size:0.95rem}
+
+/* Mobile tweaks */
+@media(min-width:720px){
+    .content{font-size:clamp(1.2rem,1.6vw,1.6rem)}
+    .card{height:60vh}
+}
+
+/* play header and mode selector */
+.play-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.mode-selector{display:flex;gap:8px}
+.mode-btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:#fff}
+.mode-btn.active{background:var(--accent);color:#fff;border-color:transparent}
+.play-score{font-weight:600;color:var(--muted)}
+
+/* In-play mode selector is visible so users can switch modes while playing */
+.play-header .mode-selector{display:flex}
+
+/* visual for disabled mode buttons (locked while playing a chosen mode) */
+.mode-btn:disabled{opacity:0.55;cursor:not-allowed}
+
+/* Difficulty selector */
+.difficulty-selector{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.difficulty-btn{padding:6px 10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:#fff}
+.difficulty-btn.active{background:var(--accent);color:#fff}
+
+/* list picker modal tweaks */
+#list-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds space between each list card */
+}
+#list-picker .list-card{cursor:pointer}
+#list-picker .list-card:hover{box-shadow:0 6px 18px rgba(0,0,0,0.08);transform:translateY(-2px)}
+
+/* timer in play header */
+.play-timer{font-weight:700;color:var(--accent);margin-left:8px}
+
+/* Alternatives */
+.alt-area,.type-area{margin-top:12px;text-align:center}
+.alt-area.hidden, .type-area.hidden{display:none !important}
+.alt-image img,.type-image img{max-width:100%;max-height:40vh;object-fit:contain;border-radius:8px}
+.options{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.options .opt{padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:#fff;cursor:pointer}
+.options .opt.correct{background:linear-gradient(90deg,#48bb78,#38a169);color:#fff}
+.options .opt.wrong{background:#fed7d7;border-color:#f56565;color:#822}
+.alt-feedback,.type-feedback{margin-top:8px;font-weight:600}
+.type-input-row{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.type-input{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);min-width:160px}
+
+/* Theme toggle / icon button */
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent}
+.icon-btn img{width:20px;height:20px;display:block}
+
+/* Dark theme variables and tweaks */
+body.dark{
+    --bg: #0f1720;
+    --card-bg: #0b1220;
+    --accent: #7dd3fc;
+    --muted: #9aa6b2;
+    color: #e6eef6;
+}
+
+body.dark header, body.dark footer{ background:#071023; color:#e6eef6 }
+body.dark .btn{ background:#0f1726; color:#e6eef6; border-color: rgba(255,255,255,0.04) }
+body.dark .card{ background:var(--card-bg); color:var(--muted); border-color: rgba(255,255,255,0.04) }
+body.dark .mode-btn.active{ background:var(--accent); color:#032; }
+
+/* Slight visual for pressed theme button when dark */
+.icon-btn[aria-pressed="true"]{ background: rgba(255,255,255,0.04); }
+
+/* Styles for Reversed Alternatives Mode */
+.alt-area-reversed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Add some space between elements */
+}
+
+.reversed-alt-question {
+  font-size: 1.5em; /* Increase font size */
+  font-weight: bold; /* Make it stand out a bit */
+  margin-bottom: 1rem; /* Space below the question */
+  text-align: center;
+}
+
+.reversed-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.opt-img {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.opt-img:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+.opt-img img {
+  width: 150px; /* Or some other appropriate size */
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.opt-img.correct {
+  border-color: #28a745;
+  box-shadow: 0 0 10px #28a745;
+}
+
+.opt-img.wrong {
+  border-color: #dc3545;
+  box-shadow: 0 0 10px #dc3545;
+}
+
+/* Specific adjustments for small screens */
+@media (max-width: 480px) {
+  .menu-actions {
+    flex-direction: column;
+    align-items: stretch; /* Make buttons take full width of the container */
+  }
+
+  .menu-actions .btn {
+    width: 100%; /* Ensure buttons fill the stretched container */
+  }
+
+  .reversed-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .opt-img img {
+    width: 200px;
+    height: 200px;
+  }
+}

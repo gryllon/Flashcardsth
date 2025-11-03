@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- header removed; primary navigation lives in the central Menu section -->
+
+    <main class="app">
+        <!-- Menu principal -->
+        <section id="menu" class="menu">
+            <h2>Menu</h2>
+            <div class="menu-actions">
+                    <button id="menu-start" class="btn primary">Iniciar</button>
+                    <button id="menu-create" class="btn">Criar lista</button>
+                    <button id="menu-view" class="btn">Ver lista</button>
+                    <button id="menu-stats" class="btn">Estatísticas</button>
+                    <button id="theme-toggle" class="btn icon-btn" aria-pressed="false" title="Alternar tema (claro/escuro)">
+                        <img src="assets/icons/lua.png" alt="Tema escuro" />
+                    </button>
+            </div>
+        </section>
+
+        <!-- Criar / Importar lista -->
+        <section id="create-list" class="panel hidden">
+            <button id="create-back" class="btn">Voltar</button>
+            <h2>Criar lista de flashcards</h2>
+            <form id="add-form" class="add-form">
+                <label>Nome da Lista (obrigatório):</label>
+                <input id="list-name-input" type="text" placeholder="Ex: Lista de Biologia" required>
+                <label>Imagem (PNG/JPG):</label>
+                <input id="file-input" type="file" accept="image/*">
+                <label>Nome (verso):</label>
+                <input id="name-input" type="text" placeholder="Nome da imagem">
+                <div class="row">
+                    <button id="add-item" type="button" class="btn">Adicionar</button>
+                    <button id="save-list" type="button" class="btn primary">Salvar lista</button>
+                </div>
+            </form>
+            <div id="create-preview" class="preview-grid"></div>
+        </section>
+
+        <!-- Ver lista -->
+        <section id="view-list" class="panel hidden">
+            <button id="view-list-back" class="btn">Voltar</button>
+            <h2>Listas salvas</h2>
+            <div id="saved-lists" class="lists-collection"></div>
+        </section>
+
+        <!-- Estatísticas -->
+        <section id="stats-page" class="panel hidden">
+            <div class="panel-header">
+                <button id="stats-back" class="btn">Voltar</button>
+                <button id="reset-stats-btn" class="btn danger">Resetar</button>
+            </div>
+            <h2>Estatísticas</h2>
+            <div id="activity-calendar"></div>
+            <h4>Cartas para treinar:</h4>
+            <div id="top-errors" class="lists-collection"></div>
+        </section>
+
+        <!-- Menu de seleção de modo (aparece após clicar Iniciar no menu principal) -->
+        <section id="mode-menu" class="panel hidden">
+            <button id="mode-menu-back" class="btn">Voltar</button>
+            <h2>Escolha o modo</h2>
+            <div class="menu-actions">
+                <button id="mode-menu-cards" class="btn mode-option">Cards</button>
+                <button id="mode-menu-mc" class="btn mode-option">Alternativas</button>
+                <button id="mode-menu-mc-reversed" class="btn mode-option">Alternativas (Invertido)</button>
+                <button id="mode-menu-type" class="btn mode-option">Digitar</button>
+            </div>
+        </section>
+
+        <!-- Menu de dificuldade (aparece após escolher o modo) -->
+        <section id="difficulty-menu" class="panel hidden">
+            <button id="difficulty-back" class="btn">Voltar</button>
+            <h2>Escolha a dificuldade</h2>
+            <div class="menu-actions">
+                <button id="difficulty-facil" class="btn">Facil</button>
+                <button id="difficulty-medio" class="btn">Medio</button>
+                <button id="difficulty-dificil" class="btn">Dificil</button>
+            </div>
+        </section>
+
+        <!-- Área de flashcards (inicialmente oculta até Iniciar) -->
+        <section id="flashcards" class="card-area hidden">
+            <div class="play-header">
+                <div class="mode-selector">
+                    <button id="mode-cards" class="mode-btn active">Cards</button>
+                    <button id="mode-mc" class="mode-btn">Alternativas</button>
+                    <button id="mode-type" class="mode-btn">Digitar</button>
+                </div>
+                <div class="play-score" id="play-score">0 / 0</div>
+                <div class="play-timer" id="play-timer" aria-live="polite">00:00</div>
+                <div class="play-exit">
+                    <button id="exit-play" class="btn hidden" aria-label="Voltar ao menu" title="Voltar ao menu">Voltar ao menu</button>
+                </div>
+            </div>
+            <!-- Difficulty selector (shown when MC or Type chosen) -->
+            <div id="difficulty-selector" class="difficulty-selector hidden">
+                <span class="muted">Dificuldade:</span>
+                <button id="diff-facil" class="btn difficulty-btn">Facil</button>
+                <button id="diff-medio" class="btn difficulty-btn">Medio</button>
+                <button id="diff-dificil" class="btn difficulty-btn">Dificil</button>
+                <button id="diff-back" class="btn">Voltar</button>
+            </div>
+            <div class="card-wrap">
+                <div class="card" id="card" tabindex="0" aria-live="polite">
+                    <div class="face front">
+                        <div class="content" id="card-front">Frente do cartão</div>
+                    </div>
+                    <div class="face back">
+                        <div class="content" id="card-back">Verso do cartão</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prev" class="btn">Anterior</button>
+                <button id="flip" class="btn">Virar</button>
+                <button id="next" class="btn">Próximo</button>
+            </div>
+
+            <div class="meta">
+                <button id="shuffle" class="link">Embaralhar</button>
+                <span id="position" class="position">1 / 1</span>
+            </div>
+            <!-- Alternatives mode area -->
+            <div id="alt-area" class="alt-area hidden">
+                <div class="alt-image" id="alt-image"></div>
+                <div class="options" id="alt-options"></div>
+                <div class="alt-feedback" id="alt-feedback"></div>
+            </div>
+
+            <!-- Reversed Alternatives mode area -->
+            <div id="alt-area-reversed" class="alt-area-reversed hidden">
+                <div class="reversed-alt-question" id="reversed-alt-question"></div>
+                <div class="reversed-options" id="reversed-alt-options"></div>
+                <div class="reversed-alt-feedback" id="reversed-alt-feedback"></div>
+            </div>
+
+            <!-- Type mode area -->
+            <div id="type-area" class="type-area hidden">
+                <div class="type-image" id="type-image"></div>
+                <div class="type-input-row">
+                    <input id="type-input" type="text" placeholder="Digite a resposta aqui" class="type-input">
+                    <button id="type-submit" class="btn">Enviar</button>
+                </div>
+                <div class="type-feedback" id="type-feedback"></div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer"></footer>
+    <!-- Toast (undo / notifications) -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <!-- Confirm modal (used by showConfirm) -->
+    <div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <div id="confirm-message">Confirme a ação</div>
+            <div class="modal-actions">
+                <button id="confirm-cancel" class="btn">Cancelar</button>
+                <button id="confirm-ok" class="btn primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- List picker modal (usado para escolher lista ao iniciar jogo) -->
+    <div id="list-picker-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <h3>Escolha uma lista</h3>
+            <div id="list-picker"></div>
+            <div class="modal-actions">
+                <button id="list-picker-cancel" class="btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Round Over modal -->
+    <div id="round-over-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <h3 id="round-over-title">Rodada concluída!</h3>
+            <div id="round-over-score">Você acertou 0 de 0.</div>
+            <div class="modal-actions">
+                <button id="round-over-menu" class="btn">Voltar ao Menu</button>
+                <button id="round-over-restart" class="btn primary">Jogar novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>
